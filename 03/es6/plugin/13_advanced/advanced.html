@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+	<title>jQuery - Advanced Plugin Concepts</title>
+	<style>
+		#myDiv {
+			width: 50px;
+			weigth: 50px;
+		}
+	</style>
+</head>
+<body>
+	
+	<h1>jQuery - Advanced Plugin Concepts</h1>
+	
+	<p>1 - jQuery - Advanced Plugin Concepts</p>
+	
+	<p id="text02">2 - jQuery - Advanced Plugin Concepts</p>
+	
+	<p>3 - jQuery - Advanced Plugin Concepts</p>
+	
+	<button id="btn">Executar</button>
+	<script src="../js/jquery-3.1.1.min.js"></script>
+	<script src="advanced.js"></script>
+
+	<script>
+		// Usage example:
+		(function($){
+			$('#btn').click(function(){
+				$('#text02').hilight();
+			});
+		})(jQuery);
+		
+	</script>
+</body>
+</html>

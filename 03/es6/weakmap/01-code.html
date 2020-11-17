@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        
+        "use strict";
+
+            const weakMap = new WeakMap();
+
+            let elemento1 = window;
+            let elemento2 = document.querySelector('body');
+
+            weakMap.set(elemento1, 'sou o elemento 1');
+            weakMap.set(elemento2, 'sou o elemento 2');
+
+            console.log(weakMap.get(elemento1));
+            console.log(weakMap.get(elemento2));
+
+            elemento2.parentNode.removeChild(elemento2);
+            elemento2 = null; // removendo referência local
+
+            console.log(weakMap.get(elemento2)); // undefined 
+
+            //Teste 2
+
+            var weakMap1 = new WeakMap(); 
+            
+            function funcao() { }; 
+            var objeto = {}; 
+            
+            // TypeError: Invalid value used as weak map key             
+            //console.log(weakMap1.set("string", "isso é uma string"));             
+            
+            console.log(weakMap1.set(funcao, "isso é uma função")); 
+            console.log(weakMap1.set(objeto, "isso é um objeto")); 
+
+
+    </script>
+    
+</body>
+</html>
+

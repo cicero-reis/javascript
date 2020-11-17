@@ -1,0 +1,34 @@
+PLUGIN - http://learn.jquery.com/plugins/basic-plugin-creation/
+
+$
+this
+.css
+.addClass
+append
+attr
+filter
+each
+fn
+parseInt
+text
+.extend
+
+
+Sempre que você usar a função $ para selecionar elementos,
+ele retorna um objeto jQuery. 
+
+Este objeto contém todos os métodos que você está 
+usando ( .css(), .click(), etc.) 
+e todos os elementos que se encaixam no seu seletor. 
+
+O objeto jQuery recebe estes métodos do $.fn.objeto. 
+Este objeto contém todos os métodos de objeto jQuery,
+e se quisermos escrever nossos próprios métodos, 
+ele precisará conter esses também.
+
+Note-se que a utilização .css(), um outro método, 
+usamos this, não $(this). 
+Isto é porque a função greenify é uma parte do mesmo 
+objecto .css().
+
+

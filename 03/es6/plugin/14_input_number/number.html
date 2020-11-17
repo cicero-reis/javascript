@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+	<title>jQuery - Advanced Plugin Concepts</title>
+	<style>
+		#myDiv {
+			width: 50px;
+			weigth: 50px;
+		}
+	</style>
+</head>
+<body>
+	
+	<h1>jQuery - Advanced Plugin Concepts</h1>
+	
+	<form action="" method="post">
+		<label><input type="text" value="" id="campo1" />
+		somente números</label><span></span>
+
+		<label><input type="text" value="" id="campo2" />
+		somente letras minúsculas</label>
+
+		<label><input type="text" value="" id="campo3" />
+		somente letras maiúsculas e minúsculas</label>
+
+		<label><input type="text" value="" id="campo4" />
+		somente letras maiúsculas e minúsculas e numeros</label>
+
+		<label><input type="text" value="" id="campo5" />
+		somente valores definidos (2,4,6,8)</label>
+	</form>
+	
+	<script src="js/jquery-3.1.1.min.js"></script>
+	
+
+	<script>
+		(function(jQuery) {
+
+			jQuery.fn.fieldInput = function(option){
+			
+				var keysInput = $(this);
+				
+				var defaults = {
+					pattern: /[^0-9]/,
+					replacement: ''
+				}
+								
+				option = jQuery.extend(defaults, option);
+
+				keysInput.keyup(function(){
+					var new_value = keysInput.val().replace( option.pattern, option.replacement );
+					keysInput.val( new_value );
+				});
+				
+				return keysInput;
+	
+			};
+
+			$(document).ready(function(){
+				$("#campo1").fieldInput({ pattern: /[^0-9]+/g });
+				$("#campo2").fieldInput({ pattern: /[^a-z]+/g });
+				$("#campo3").fieldInput({ pattern: /[^a-z]+/gi });
+				$("#campo4").fieldInput({ pattern: /[^a-z0-9]+/gi });
+				$("#campo5").fieldInput({ pattern: /[^2468]+/g });				
+			});
+			
+		})(jQuery);		
+		
+		
+	</script>
+</body>
+</html>
